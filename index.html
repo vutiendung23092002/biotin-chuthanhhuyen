@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- SEO & Social Meta Tags -->
+  <meta property="og:title" content="Biotin Men Bia Khô – Mọc tóc, giảm rụng, nuôi dưỡng tóc khỏe từ gốc" />
+  <meta property="og:description"
+    content="Viên uống Biotin Men Bia Khô giúp kích thích mọc tóc, giảm gãy rụng, cải thiện móng và da. Bổ sung Biotin tự nhiên kết hợp Men bia khô – giải pháp nuôi dưỡng tóc khỏe đẹp từ bên trong. Ưu đãi hấp dẫn – Đặt mua ngay hôm nay!" />
+  <meta property="og:image" content="https://tenmiencuaban.com/images/cth/53dbfceb12c79f99c6d6.jpg" />
+  <meta property="og:url" content="https://tenmiencuaban.com" />
+  <meta property="og:type" content="product" />
+  <meta name="description"
+    content="Biotin Men Bia Khô – Viên uống kích thích mọc tóc, giảm rụng tóc, cải thiện móng và da, chiết xuất từ men bia khô và biotin tự nhiên. Sản phẩm chính hãng, giao hàng toàn quốc." />
+  <meta name="keywords"
+    content="biotin, men bia khô, mọc tóc, giảm rụng tóc, dưỡng tóc, thực phẩm chức năng tóc, viên uống biotin, tóc chắc khỏe, mọc tóc nhanh" />
+  <title>
+    Biotin Men Bia Khô | Mọc tóc, giảm rụng, nuôi dưỡng tóc khỏe từ gốc
+  </title>
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+  <link rel="manifest" href="./images/site.webmanifest">
+
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Brand colors
+            primary: "#1E73BE",
+            primary_light: "#A8D8F0",
+            accent: "#2A8BE7",
+            silver: "#CFE8F8",
+            white: "#FFFFFF",
+            benefits_color: "#163459",
+            feedback_color: "#f1f0e9",
+
+            // Neutral & Text
+            txt_primary: "#3B4C63",
+            txt_light: "#7A8C9E",
+            txt_bg: "#FFFFFF",
+            txt_bg_alt: "#F6FAFC",
+          },
+
+          boxShadow: {
+            // Shadow & Effects
+            soft: "0 4px 10px rgba(30, 115, 190, 0.08)",
+            strong: "0 8px 20px rgba(30, 115, 190, 0.15)",
+          },
+
+          backgroundImage: {
+            // Gradients
+            "gradient-primary":
+              "linear-gradient(120deg, #A8D8F0 0%, #FFFFFF 100%)",
+            "gradient-accent":
+              "linear-gradient(120deg, #1E73BE 0%, #2A8BE7 100%)",
+          },
+
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translatex(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translatex(0);
+      }
+    }
+
+    .animate-fade-up {
+      opacity: 0;
+      animation: fadeUp 0.45s ease-out forwards;
+      animation-play-state: paused;
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 6px 2px rgba(249, 178, 51, 0.4);
+        transform: scale(1);
+      }
+
+      50% {
+        box-shadow: 0 0 14px 5px rgba(249, 178, 51, 0.8);
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes textGlow {
+
+      0%,
+      100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 2px rgba(35, 181, 248, 0.7));
+      }
+
+      50% {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 8px rgb(102, 207, 248));
+      }
+    }
+
+    .bg-header {
+      background-image: url(./images/background/hero_bg.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .bg-hero {
+      background-image: url(./images/background/hero_bg.png);
+    }
+
+    .bg-ingredients {
+      background-image: url(./images/background/usage_bg.png);
+    }
+
+    @keyframes scalePulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    .animate-scalePulse {
+      animation: scalePulse 1.5s infinite ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="site-header"
+    class="bg-header fixed top-0 left-0 right-0 bg-white shadow-sm z-50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-3">
+      <!-- Logo -->
+      <div class="flex items-center gap-2 font-bold text-lg text-gray-800">
+        <a href="#hero"
+          class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-[textGlow_2s_ease-in-out_infinite] font-extrabold tracking-wide">
+          Biotin - Men bia khô
+        </a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-900">
+        <a href="#benefits" class="hover:text-primary active:text-primary">Công dụng</a>
+        <a href="#ingredients" class="hover:text-primary active:text-primary">Thành phần chính</a>
+        <a href="#feedback" class="hover:text-primary active:text-primary">Phản hồi của khách hàng</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-gray-700 text-2xl focus:outline-none">
+        ☰
+      </button>
+    </div>
+
+    <!-- mobile nav menu -->
+    <nav id="mobile-menu"
+      class="bg-header hidden flex-col items-start bg-white border-t shadow-lg md:hidden text-gray-900 text-sm font-semibold px-6 py-4 space-y-3">
+      <a href="#benefits" class="block hover:text-primary">Công dụng</a>
+      <a href="#ingredients" class="block hover:text-primary">Thành phần chính</a>
+      <a href="#feedback" class="block hover:text-primary">Phản hồi của khách hàng</a>
+    </nav>
+  </header>
+
+  <main class="pt-6">
+    <!-- hero -->
+    <section id="hero" class="bg-hero">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10 px-6 py-8">
+        <!-- Text content -->
+        <div>
+          <h1
+            class="text-relative pl-4 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[4px] before:h-[95%] before:bg-primary text-3xl text-txt_primary font-extrabold leading-tight mt-4 mb-3 opacity-0 animate-fade-up">
+            Biotin Men Bia Khô<br />
+            Mọc tóc – Giảm rụng – Nuôi tóc khỏe từ gốc
+          </h1>
+
+          <p class="text-gray-600 text-lg mb-5 max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+            Viên uống Biotin chiết xuất từ men bia khô giúp kích thích mọc
+            tóc, giảm gãy rụng và nuôi dưỡng tóc, móng, da khỏe mạnh từ bên
+            trong.
+          </p>
+
+          <div class="flex gap-5 opacity-0 animate-fade-up [animation-delay:0.4s]">
+            <button onclick="scrollToOrder()"
+              class="bg-accent text-white px-6 py-3 rounded-xl font-bold shadow hover:bg-primary transition">
+              ĐẶT MUA NGAY
+            </button>
+            <a href="#ingredients"
+              class="border border-gray-300 bg-white text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-50">
+              Tìm hiểu thêm
+            </a>
+          </div>
+
+          <div class="mt-4 text-gray-500 text-sm opacity-0 animate-fade-up [animation-delay:0.6s]">
+            <strong>Chính hãng – Giao hàng toàn quốc</strong> • Mọc tóc nhanh
+            – Giảm rụng sau 2–4 tuần • Hơn 15.000 khách hàng tin dùng
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="rounded-2xl flex justify-end opacity-0 animate-fade-up [animation-delay:0.8s]">
+          <img src="./images/cth/hero.png" alt="Biotin Men Bia Khô – Viên uống mọc tóc giảm rụng"
+            class="max-w-full rounded-2xl" />
+        </div>
+      </div>
+    </section>
+
+    <!-- benefits -->
+    <section id="benefits" class="bg-benefits_color">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10 px-6 py-8">
+        <div class="order-2 md:order-1 opacity-0 animate-fade-up [animation-delay:0.8s]">
+          <img src="./images/products/6.png" alt="" />
+        </div>
+
+        <div class="order-1 md:order-2">
+          <div>
+            <h3
+              class="text-white relative pl-4 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[4px] before:h-[95%] before:bg-primary text-3xl text-txt_primary font-extrabold leading-tight mt-4 mb-3 opacity-0 animate-fade-up">
+              Công dụng
+            </h3>
+
+            <div class="flex items-start mb-2 gap-2">
+              <img class="w-[20px] mt-[4px]" src="./images/icon/badge_check.svg" alt="icon check" />
+              <p class="text-gray-300 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+                Dưỡng trắng chuyên sâu và làm đều màu da
+              </p>
+            </div>
+
+            <div class="flex items-start mb-2 gap-2">
+              <img class="w-[20px] mt-[4px]" src="./images/icon/badge_check.svg" alt="icon check" />
+              <p class="text-gray-300 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+                Cải thiện xỉn màu, thâm, sạm, nám, tàn nhang
+              </p>
+            </div>
+
+            <div class="flex items-start mb-2 gap-2">
+              <img class="w-[20px] mt-[4px]" src="./images/icon/badge_check.svg" alt="icon check" />
+              <p class="text-gray-300 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+                Chống lão hóa, cải thiện nếp nhăn nông - sâu
+              </p>
+            </div>
+
+            <div class="flex items-start mb-2 gap-2">
+              <img class="w-[20px] mt-[4px]" src="./images/icon/badge_check.svg" alt="icon check" />
+              <p class="text-gray-300 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+                Cấp ẩm, nuôi dưỡng làn da căng bóng, mịn màng
+              </p>
+            </div>
+
+            <div class="flex items-start mb-2 gap-2">
+              <img class="w-[20px] mt-[4px]" src="./images/icon/badge_check.svg" alt="icon check" />
+              <p class="text-gray-300 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+                Tăng cường độ đàn hồi, săn chắc cho làn da
+              </p>
+            </div>
+          </div>
+          <!-- usage -->
+          <div id="usage">
+            <h3
+              class="text-white relative pl-4 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[4px] before:h-[95%] before:bg-primary text-3xl text-txt_primary font-extrabold leading-tight mt-4 mb-3 opacity-0 animate-fade-up">
+              Hướng dẫn sử dụng
+            </h3>
+            <div class="flex items-start mb-2 gap-2">
+              <img class="w-[20px] mt-[4px]" src="./images/icon/badge_check.svg" alt="icon check" />
+              <p class="text-gray-300 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+                Đối tượng sử dụng: Người trưởng thành
+              </p>
+            </div>
+            <div class="flex items-start mb-2 gap-2">
+              <img class="w-[20px] mt-[4px]" src="./images/icon/badge_check.svg" alt="icon check" />
+              <p class="text-gray-300 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+                Uống 1 viên mỗi ngày sau ăn 30p vào buổi sáng
+              </p>
+            </div>
+            <div class="flex items-start mb-2 gap-2">
+              <img class="w-[20px] mt-[4px]" src="./images/icon/badge_check.svg" alt="icon check" />
+              <p class="text-gray-300 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+                Lưu ý: <br />
+                + Thực phẩm này không phải là thuốc và không có tác dụng thay
+                thế thuốc chữa bệnh. <br />
+                + Không sử dụng cho người bị tiểu đường, mẫn cảm với bất kì
+                thành phần nào của sản phẩm. <br />
+                + Trẻ em và phụ nữ đang mang thai hoặc cho con bú. <br />
+                + Không sử dụng chung với các sản phẩm biotin khác.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ingredients -->
+    <section id="ingredients" class="bg-ingredients">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10 px-6 py-8">
+        <div class="order-1 md:order-1">
+          <h3
+            class="text-gray-600 relative pl-4 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[4px] before:h-[95%] before:bg-primary text-3xl text-txt_primary font-extrabold leading-tight mt-4 mb-3 opacity-0 animate-fade-up">
+            Thành phần chính
+          </h3>
+
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/arrow-right.svg" alt="icon check" />
+            <p class="text-gray-600 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>Men bia khô</strong> (250mg)
+            </p>
+          </div>
+
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/arrow-right.svg" alt="icon check" />
+            <p class="text-gray-600 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>Biotin</strong> (từ men bia 300mg)
+            </p>
+          </div>
+
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/arrow-right.svg" alt="icon check" />
+            <p class="text-gray-600 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>Bột đậu nành đen</strong> (1mg)
+            </p>
+          </div>
+
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/arrow-right.svg" alt="icon check" />
+            <p class="text-gray-600 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>L-Glycine</strong> (1mg)
+            </p>
+          </div>
+
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/arrow-right.svg" alt="icon check" />
+            <p class="text-gray-600 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>L-Cysteine hydrocloride</strong> (1mg)
+            </p>
+          </div>
+
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/arrow-right.svg" alt="icon check" />
+            <p class="text-gray-600 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>L-Clutamine</strong> (1mg)
+            </p>
+          </div>
+
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/arrow-right.svg" alt="icon check" />
+            <p class="text-gray-600 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>Elastin thủy phân</strong> (1mg)
+            </p>
+          </div>
+
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/arrow-right.svg" alt="icon check" />
+            <p class="text-gray-600 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>Hỗn hợp acid amin</strong>
+            </p>
+          </div>
+
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/arrow-right.svg" alt="icon check" />
+            <p class="text-gray-600 text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>Phụ liệu tạo ngọt tự nhiên (Glucose), chất độn (cellulose
+                tinh thể)</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="order-2 md:order-2 opacity-0 animate-fade-up [animation-delay:0.8s]">
+          <img src="./images/products/5.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- feedback -->
+    <section id="feedback" class="bg-feedback_color">
+      <div class="max-w-6xl mx-auto items-center gap-10 px-6 py-8">
+        <h3
+          class="text-gray-600 relative pl-4 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[4px] before:h-[95%] before:bg-primary text-3xl text-txt_primary font-extrabold leading-tight mt-4 mb-3 opacity-0 animate-fade-up">
+          Feedback <br />
+          <span class="text-gray-500 text-2xl">Khách hàng nói gì về kem dưỡng trắng K Lady Care</span>
+        </h3>
+        <div class="grid grid-cols-2 gap-2">
+          <img src="./images/fback/1.png" alt="feedback img" />
+          <img src="./images/fback/2.png" alt="feedback img" />
+          <img src="./images/fback/3.png" alt="feedback img" />
+          <img src="./images/fback/4.png" alt="feedback img" />
+          <img src="./images/fback/5.png" alt="feedback img" />
+          <img src="./images/fback/6.png" alt="feedback img" />
+          <!-- <img src="./images/fback/7.png" alt="feedback img" /> -->
+          <!-- <img src="./images/fback/8.png" alt="feedback img" /> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- order -->
+    <section id="order" class="bg-header">
+      <div class="max-w-6xl mx-auto items-center gap-10 px-6 py-8">
+        <h3
+          class="text-gray-600 relative pl-4 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[4px] before:h-[95%] before:bg-primary text-3xl text-txt_primary font-extrabold leading-tight mt-4 mb-3 opacity-0 animate-fade-up">
+          Đặt hàng
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 opacity-0 animate-fade-up">
+          <img src="./images/products/4.png" alt="" />
+          <form id="orderForm" class="space-y-3">
+            <div>
+              <label for="name" class="block font-semibold text-gray-800 mb-2">
+                Họ & Tên<span class="text-red-700"> *</span>
+              </label>
+              <input id="name" type="text" name="entry.165111850" class="w-full border rounded-lg p-2.5 mt-1 text-sm"
+                placeholder="Nguyễn Văn A" required />
+            </div>
+
+            <div>
+              <label for="phone" class="block font-semibold text-gray-800 mb-2">
+                Số điện thoại<span class="text-red-700"> *</span>
+              </label>
+              <input id="phone" type="tel" name="entry.2029467501" class="w-full border rounded-lg p-2.5 mt-1 text-sm"
+                placeholder="09xxxxxxxx" required oninput="validatePhone(this)" />
+              <p id="phoneError" class="text-red-600 text-sm mt-1 hidden">
+                ⚠️ Số điện thoại phải có 10 số và bắt đầu bằng 0.
+              </p>
+            </div>
+
+            <div>
+              <label for="email" class="block font-semibold text-gray-800 mb-2">Email</label>
+              <input id="email" type="text" name="entry.956653171" class="w-full border rounded-lg p-2.5 mt-1 text-sm"
+                placeholder="Email (không bắt buộc)" />
+            </div>
+
+            <div>
+              <label class="block font-semibold text-gray-800 mb-2">Số lượng<span class="text-red-700"> *</span></label>
+              <div class="grid grid-cols-1 gap-3 mb-2">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="combo" value="1" class="accent-[#a0522d]" />
+                  <span>1 hộp (<span class="line-through">499.000đ</span> giảm
+                    còn
+                    <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]">419.000đ</span>
+                    )</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="combo" value="2" class="accent-[#a0522d]" />
+                  <span>2 hộp (<span class="line-through">999.000đ</span> giảm
+                    còn
+                    <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]">799.000đ</span>)</span>
+                </label>
+              </div>
+              <input id="quantity" type="number" name="entry.960744204" min="1"
+                placeholder="Hoặc nhập số lượng khác (hộp)" class="w-full border rounded-lg p-2.5 mt-1 text-sm"
+                required />
+            </div>
+
+            <div>
+              <label for="address" class="block font-semibold text-gray-800 mb-2">Địa chỉ<span class="text-red-700">
+                  *</span></label>
+              <input id="address" type="text" name="entry.627088445" class="w-full border rounded-lg p-2.5 mt-1 text-sm"
+                placeholder="Quận, tỉnh, địa chỉ nhận hàng" required />
+            </div>
+
+            <div>
+              <label for="note" class="block font-semibold text-gray-800 mb-2">Ghi chú</label>
+              <textarea id="note" name="entry.992466259" rows="3" class="w-full border rounded-lg p-2.5 mt-1 text-sm"
+                placeholder="Ghi chú (nếu có)"></textarea>
+            </div>
+
+            <button type="submit"
+              class="w-full bg-accent text-white px-6 py-3 rounded-xl font-bold shadow hover:bg-primary transition">
+              MUA HÀNG
+            </button>
+            <p class="mt-4 text-sm text-gray-100">
+              📞 Chúng tôi sẽ gọi điện xác nhận đơn hàng của bạn trong 10 phút
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Messenger Icon -->
+    <div class="fixed bottom-6 right-6 z-50 group">
+      <div class="relative flex items-center">
+        <!-- Icon (có link) -->
+        <a href="https://m.me/giahankorea" target="_blank"
+          class="bg-blue-500 text-white p-4 rounded-full shadow-lg animate-scalePulse transition-transform duration-300 group-hover:scale-125">
+          <!-- Messenger SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.486 2 2 6.201 2 11.5c0 2.978 1.547 5.646 4 7.418V22l3.683-2.047C10.445 20.316 11.212 20.5 12 20.5c5.514 0 10-4.201 10-9.5S17.514 2 12 2zm.5 12l-2.293-2.293-4.207 2.293 4.5-5.5 2.293 2.293 4.207-2.293-4.5 5.5z">
+            </path>
+          </svg>
+        </a>
+
+        <!-- Tooltip (không click được, chỉ hiển thị khi hover) -->
+        <span
+          class="absolute right-16 bg-[#3e4c3a] text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transform translate-x-2 transition-all duration-300 whitespace-nowrap shadow-lg pointer-events-none">
+          Nhắn tin cho tư vấn viên!
+        </span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-primary text-white py-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 gap-4 text-sm">
+      <!-- Thông tin thương hiệu -->
+      <div
+        class="text-white text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s] text-center md:text-left leading-relaxed">
+        <strong>Biotin - Men bia khô</strong><br />
+        <span>© 2025 Biotin - Men bia khô. Tất cả quyền được bảo lưu.</span>
+      </div>
+
+      <!-- Liên hệ & mạng xã hội -->
+      <div class="flex flex-col md:flex-row items-center gap-3 md:gap-5 text-center md:text-right">
+        <a href="#" target="_blank" class="flex items-center gap-2 hover:text-accent transition">
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/phone.svg" alt="icon fb" />
+            <p
+              class="text-white text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s] whitespace-nowrap">
+              <strong>Hotline: +84 916.166.862</strong>
+            </p>
+          </div>
+        </a>
+        <a href="https://m.me/61557203057091" target="_blank"
+          class="flex items-center gap-2 hover:text-accent transition">
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/messages.svg" alt="icon mess" />
+            <p class="text-white text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>Messenger</strong>
+            </p>
+          </div>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61557203057091" target="_blank"
+          class="flex items-center gap-2 hover:text-accent transition">
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/facebook.svg" alt="icon fb" />
+            <p class="text-white text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>Facebook</strong>
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToOrder() {
+      document
+        .getElementById("order")
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+      if (!name || !phone || !address) {
+        alert("Vui lòng nhập đầy đủ Họ tên, Số điện thoại và Địa chỉ.");
+        return;
+      }
+      alert(`Cảm ơn ${name}! Đơn hàng của bạn đã được ghi nhận.`);
+      e.target.reset();
+    }
+  </script>
+
+  <script>
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      if (menu.classList.contains("hidden")) {
+        menuBtn.textContent = "☰";
+      } else {
+        menuBtn.textContent = "✕";
+      }
+    });
+
+    document.querySelectorAll("#mobile-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        menuBtn.textContent = "☰";
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const animatedElements = document.querySelectorAll(".animate-fade-up");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = "running";
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.05,
+        }
+      );
+
+      animatedElements.forEach((el) => {
+        el.style.animationPlayState = "paused";
+        observer.observe(el);
+      });
+    });
+  </script>
+
+  <!-- quantity order -->
+  <script>
+    const radios = document.querySelectorAll('input[name="combo"]');
+    const quantityInput = document.getElementById("quantity");
+
+    // Khi chọn radio -> cập nhật số lượng
+    radios.forEach((radio) => {
+      radio.addEventListener("change", () => {
+        quantityInput.value = radio.value;
+      });
+    });
+
+    // Khi nhập số lượng thủ công -> bỏ chọn radio
+    quantityInput.addEventListener("input", () => {
+      radios.forEach((r) => (r.checked = false));
+    });
+  </script>
+
+  <!-- validate phone number -->
+  <script>
+    const form = document.getElementById("orderForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const phone = document.getElementById("phone").value.trim();
+      if (!/^0\d{9}$/.test(phone)) {
+        alert("⚠️ Vui lòng nhập đúng số điện thoại (10 số, bắt đầu bằng 0).");
+        return;
+      }
+
+      const formData = new FormData(form);
+      const googleFormURL =
+        "https://docs.google.com/forms/d/e/1FAIpQLScAeIVCTart-ik1k1RzIzvlGVO3hW0U6XBayA0kPNQxpWse2w/formResponse";
+
+      try {
+        await fetch(googleFormURL, {
+          method: "POST",
+          mode: "no-cors",
+          body: formData,
+        });
+        alert(
+          `🎉 Đã gửi thông tin đơn hàng!\nChúng tôi sẽ sớm liên hệ lại số ${phone} để xác nhận.`
+        );
+      } catch (error) {
+        alert("❌ Gửi đơn hàng thất bại. Vui lòng thử lại sau!");
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+
+</html>

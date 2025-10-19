@@ -146,7 +146,39 @@
     .animate-scalePulse {
       animation: scalePulse 1.5s infinite ease-in-out;
     }
+
+    #countdown {
+      background: linear-gradient(to right, #a0522d, #8B5E3C);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(255, 200, 100, 0.4);
+      animation: pulseGlow 2s infinite;
+    }
   </style>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1310785623596529');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1310785623596529&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Facebook Pixel Code -->
 </head>
 
 <body>
@@ -412,7 +444,18 @@
           Đặt hàng
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 opacity-0 animate-fade-up">
-          <img src="./images/products/4.png" alt="" />
+
+          <div class="flex flex-col items-center justify-center gap-3 mb-6">
+            <img src="./images/products/4.png" alt="">
+            <span class="text-gray-800 text-base font-medium">
+              <strong>Chương trình ưu đãi sẽ hết sau</strong>
+            </span>
+            <div id="countdown"
+              class="px-6 py-2 rounded-full bg-gradient-to-r from-[#8B5E3C] to-[#A0522D] text-white font-bold text-lg shadow-lg animate-pulse">
+              <span id="timer" class="tracking-widest">00:00:00</span>
+            </div>
+          </div>
+
           <form id="orderForm" class="space-y-3">
             <div>
               <label for="name" class="block font-semibold text-gray-800 mb-2">
@@ -433,11 +476,11 @@
               </p>
             </div>
 
-            <div>
+            <!-- <div>
               <label for="email" class="block font-semibold text-gray-800 mb-2">Email</label>
               <input id="email" type="text" name="entry.956653171" class="w-full border rounded-lg p-2.5 mt-1 text-sm"
                 placeholder="Email (không bắt buộc)" />
-            </div>
+            </div> -->
 
             <div>
               <label class="block font-semibold text-gray-800 mb-2">Số lượng<span class="text-red-700"> *</span></label>
@@ -476,11 +519,11 @@
                 placeholder="Quận, tỉnh, địa chỉ nhận hàng" required />
             </div>
 
-            <div>
+            <!-- <div>
               <label for="note" class="block font-semibold text-gray-800 mb-2">Ghi chú</label>
               <textarea id="note" name="entry.992466259" rows="3" class="w-full border rounded-lg p-2.5 mt-1 text-sm"
                 placeholder="Ghi chú (nếu có)"></textarea>
-            </div>
+            </div> -->
 
             <button type="submit"
               class="w-full bg-accent text-white px-6 py-3 rounded-xl font-bold shadow hover:bg-primary transition">
@@ -698,6 +741,37 @@
       const order = document.getElementById("order");
       order?.scrollIntoView({ behavior: "smooth" });
     }
+  </script>
+
+  <script>
+    function startCountdown() {
+      const timerEl = document.getElementById("timer");
+
+      function updateCountdown() {
+        const now = new Date();
+        // Thời điểm 00:00:00 của ngày hôm sau
+        const tomorrow = new Date();
+        tomorrow.setHours(24, 0, 0, 0);
+
+        const diff = tomorrow - now;
+
+        if (diff <= 0) {
+          timerEl.textContent = "00:00:00";
+          return;
+        }
+
+        const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, "0");
+        const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
+        const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+
+        timerEl.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    document.addEventListener("DOMContentLoaded", startCountdown);
   </script>
 
 </body>

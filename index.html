@@ -203,7 +203,7 @@
           </p>
 
           <div class="flex gap-5 opacity-0 animate-fade-up [animation-delay:0.4s]">
-            <button onclick="scrollToOrder()"
+            <button id="cta-main" onclick="scrollToOrder()"
               class="bg-accent text-white px-6 py-3 rounded-xl font-bold shadow hover:bg-primary transition">
               ĐẶT MUA NGAY
             </button>
@@ -226,6 +226,12 @@
         </div>
       </div>
     </section>
+
+    <!-- Sticky CTA khi cuộn -->
+    <button id="cta-sticky" onclick="scrollToOrder()"
+      class="fixed top-[60px] right-4 z-50 bg-accent text-white font-bold rounded-full shadow-lg px-3 py-3 hidden animate-scalePulse transition-transform duration-300">
+      <img src="./images/icon/cart.svg" alt="">
+    </button>
 
     <!-- benefits -->
     <section id="benefits" class="bg-benefits_color">
@@ -383,12 +389,12 @@
         <h3
           class="text-gray-600 relative pl-4 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-[4px] before:h-[95%] before:bg-primary text-3xl text-txt_primary font-extrabold leading-tight mt-4 mb-3 opacity-0 animate-fade-up">
           Feedback <br />
-          <span class="text-gray-500 text-2xl">Khách hàng nói gì về kem dưỡng trắng K Lady Care</span>
+          <span class="text-gray-500 text-2xl">Khách hàng nói gì về viên uống mọc tóc Biotin</span>
         </h3>
         <div class="grid grid-cols-2 gap-2">
+          <img src="./images/fback/3.png" alt="feedback img" />
           <img src="./images/fback/1.png" alt="feedback img" />
           <img src="./images/fback/2.png" alt="feedback img" />
-          <img src="./images/fback/3.png" alt="feedback img" />
           <img src="./images/fback/4.png" alt="feedback img" />
           <img src="./images/fback/5.png" alt="feedback img" />
           <img src="./images/fback/6.png" alt="feedback img" />
@@ -439,19 +445,22 @@
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="combo" value="1" class="accent-[#a0522d]" />
                   <span>Mua 1 hộp giá
-                    <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"> <strong> 450.000đ</strong></span> 1 hộp
+                    <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"> <strong>
+                        450.000đ</strong></span> 1 hộp
                   </span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="combo" value="2" class="accent-[#a0522d]" />
                   <span>Mua 2 hộp giá
-                    <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong> 399.000đ</strong></span> 1 hộp
+                    <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>
+                        399.000đ</strong></span> 1 hộp
                   </span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="combo" value="3" class="accent-[#a0522d]" />
                   <span>Mua 3 hộp trở lên giá
-                    <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong> 379.000đ</strong></span> 1 hộp
+                    <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>
+                        379.000đ</strong></span> 1 hộp
                   </span>
                 </label>
               </div>
@@ -514,7 +523,6 @@
       <div
         class="text-white text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s] text-center md:text-left leading-relaxed">
         <strong>Biotin - Men bia khô</strong><br />
-        <span>© 2025 Biotin - Men bia khô. Tất cả quyền được bảo lưu.</span>
       </div>
 
       <!-- Liên hệ & mạng xã hội -->
@@ -667,6 +675,31 @@
       }
     });
   </script>
+
+  <script>
+    const ctaMain = document.getElementById("cta-main");
+    const ctaSticky = document.getElementById("cta-sticky");
+
+    window.addEventListener("scroll", () => {
+      const heroBottom = document
+        .getElementById("hero")
+        .getBoundingClientRect().bottom;
+
+      if (heroBottom < 100) {
+        // Khi hero ra khỏi màn hình → hiện sticky button
+        ctaSticky.classList.remove("hidden");
+      } else {
+        // Khi ở đầu trang → ẩn sticky
+        ctaSticky.classList.add("hidden");
+      }
+    });
+
+    function scrollToOrder() {
+      const order = document.getElementById("order");
+      order?.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+
 </body>
 
 </html>

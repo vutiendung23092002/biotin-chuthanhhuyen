@@ -488,7 +488,7 @@
                 Số điện thoại<span class="text-red-700"> *</span>
               </label>
               <input id="phone" type="tel" name="entry.2029467501" class="w-full border rounded-lg p-2.5 mt-1 text-sm"
-                placeholder="09xxxxxxxx" required/>
+                placeholder="09xxxxxxxx" required />
               <p id="phoneError" class="text-red-600 text-sm mt-1 hidden">
                 ⚠️ Số điện thoại phải có 10 số và bắt đầu bằng 0.
               </p>
@@ -764,33 +764,32 @@
   <script>
     function startCountdown() {
       const timerEl = document.getElementById("timer");
+      let endTime = Date.now() + 30 * 60 * 1000; // 30 phút kể từ khi vào trang
 
       function updateCountdown() {
-        const now = new Date();
-        // Thời điểm 00:00:00 của ngày hôm sau
-        const tomorrow = new Date();
-        tomorrow.setHours(24, 0, 0, 0);
-
-        const diff = tomorrow - now;
+        const now = Date.now();
+        const diff = endTime - now;
 
         if (diff <= 0) {
           timerEl.textContent = "00:00:00";
+          clearInterval(timerInterval);
           return;
         }
 
-        const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, "0");
         const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
         const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+        const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, "0");
 
         timerEl.textContent = `${hours}:${minutes}:${seconds}`;
       }
 
       updateCountdown();
-      setInterval(updateCountdown, 1000);
+      const timerInterval = setInterval(updateCountdown, 1000);
     }
 
     document.addEventListener("DOMContentLoaded", startCountdown);
   </script>
+
 
 </body>
 

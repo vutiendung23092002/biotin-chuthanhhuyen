@@ -156,6 +156,54 @@
       box-shadow: 0 0 15px rgba(255, 200, 100, 0.4);
       animation: pulseGlow 2s infinite;
     }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .spinner-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .spinner-overlay.active {
+      display: flex;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      border-top: 6px solid #FFFFFF;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .spinner-text {
+      position: absolute;
+      color: #FFFFFF;
+      font-weight: bold;
+      text-align: center;
+      bottom: 60px;
+      font-size: 14px;
+      white-space: nowrap;
+      width: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   </style>
 
   <!-- Facebook Pixel Code -->
@@ -233,6 +281,14 @@
       <a href="#feedback" class="block hover:text-primary">Phản hồi của khách hàng</a>
     </nav>
   </header>
+
+  <!-- Loading Spinner -->
+  <div id="loadingSpinner" class="spinner-overlay">
+    <div style="position: relative;">
+      <div class="spinner"></div>
+      <div class="spinner-text">⏳ ĐANG GỬI ĐƠN HÀNG...</div>
+    </div>
+  </div>
 
   <main class="pt-6">
     <!-- hero -->
@@ -540,7 +596,7 @@
                 placeholder="Ghi chú (nếu có)"></textarea>
             </div> -->
 
-            <button type="submit"
+            <button id="submitBtn" type="submit"
               class="w-full bg-accent text-white px-6 py-3 rounded-xl font-bold shadow hover:bg-primary transition">
               MUA HÀNG
             </button>
@@ -701,35 +757,91 @@
     });
   </script>
 
-  <!-- validate phone number -->
+  <!-- validate phone number & submit to Google Apps Script -->
   <script>
     const form = document.getElementById("orderForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const loadingSpinner = document.getElementById("loadingSpinner");
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyk4JGTldboS0liAzZbDqtOpHGKLhN0evOGS6g3xq5C1BteJuDzzLNhRaZjA9ObPtqGnA/exec";
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      // Lấy dữ liệu từ form
+      const name = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
-      if (!/^0\d{9}$/.test(phone)) {
-        alert("⚠️ Vui lòng nhập đúng số điện thoại (10 số, bắt đầu bằng 0).");
+      const address = document.getElementById("address").value.trim();
+      const combo = document.querySelector('input[name="combo"]:checked');
+      const quantity = document.getElementById("quantity").value.trim();
+
+      // Validate Họ và Tên
+      if (!name) {
+        alert("⚠️ Vui lòng nhập Họ và Tên.");
         return;
       }
 
-      const formData = new FormData(form);
-      const googleFormURL =
-        "https://docs.google.com/forms/d/e/1FAIpQLScAeIVCTart-ik1k1RzIzvlGVO3hW0U6XBayA0kPNQxpWse2w/formResponse";
+      // Validate số điện thoại Việt Nam (10 chữ số, bắt đầu bằng 0)
+      if (!/^0\d{9}$/.test(phone)) {
+        alert("⚠️ Vui lòng nhập đúng số điện thoại Việt Nam (10 số, bắt đầu bằng 0).\nVí dụ: 0912345678");
+        return;
+      }
+
+      // Validate Địa chỉ
+      if (!address) {
+        alert("⚠️ Vui lòng nhập Địa chỉ nhận hàng.");
+        return;
+      }
+
+      // Validate số lượng
+      if (!combo && !quantity) {
+        alert("⚠️ Vui lòng chọn số lượng hoặc nhập số hộp muốn mua.");
+        return;
+      }
+
+      // Hiển thị loading spinner
+      loadingSpinner.classList.add("active");
+      submitBtn.disabled = true;
+
+      // Chuẩn bị dữ liệu gửi
+      const data = new URLSearchParams();
+      data.append("name", name);
+      data.append("phone", phone);
+      data.append("address", address);
+      
+      if (combo) {
+        data.append("combo", combo.value);
+      } else {
+        data.append("quantity", quantity);
+      }
 
       try {
-        await fetch(googleFormURL, {
+        // Gửi dữ liệu đến Web App
+        const response = await fetch(WEB_APP_URL, {
           method: "POST",
-          mode: "no-cors",
-          body: formData,
+          body: data,
         });
-        alert(
-          `🎉 Đã gửi thông tin đơn hàng!\nChúng tôi sẽ sớm liên hệ lại số ${phone} để xác nhận.`
-        );
+
+        // Đợi response từ backend
+        const result = await response.json();
+
+        // Ẩn loading spinner
+        loadingSpinner.classList.remove("active");
+        submitBtn.disabled = false;
+
+        if (result.status === "success") {
+          alert(`🎉 Đặt hàng thành công!\n\nChúng tôi sẽ liên hệ số ${phone} để xác nhận trong 10 phút.`);
+          form.reset();
+          // Bỏ chọn radio button combo
+          document.querySelectorAll('input[name="combo"]').forEach(r => r.checked = false);
+        } else {
+          alert(`❌ Lỗi: ${result.message || "Gửi đơn hàng thất bại."}`);
+        }
       } catch (error) {
-        alert("❌ Gửi đơn hàng thất bại. Vui lòng thử lại sau!");
-        console.error(error);
+        console.error("Chi tiết lỗi:", error);
+        // Ẩn loading spinner
+        loadingSpinner.classList.remove("active");
+        submitBtn.disabled = false;
+        alert(`❌ Gửi đơn hàng thất bại!\n\nLỗi: ${error.message}\n\nVui lòng thử lại sau hoặc liên hệ: 0916.166.862`);
       }
     });
   </script>

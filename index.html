@@ -161,6 +161,7 @@
       from {
         transform: rotate(0deg);
       }
+
       to {
         transform: rotate(360deg);
       }
@@ -225,26 +226,13 @@
       s.parentNode.insertBefore(t, s);
     })(window, document, "script");
 
-    fbq("init", "1310785623596529");
+    fbq("init", "1882161849151632");
     fbq("track", "PageView");
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1310785623596529&ev=PageView&noscript=1" />
+      src="https://www.facebook.com/tr?id=1882161849151632&ev=PageView&noscript=1" />
   </noscript>
-  <!-- End Facebook Pixel Code -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const submitButton = document.querySelector('button[type="submit"]');
-      if (submitButton) {
-        submitButton.addEventListener('click', function () {
-          fbq('track', 'Lead');
-        });
-      }
-    });
-  </script>
-
-
 </head>
 
 <body>
@@ -561,17 +549,23 @@
               <div class="grid grid-cols-1 gap-3 mb-2">
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="combo" value="1" class="accent-[#a0522d]" />
-                  <span>Mua 1 hộp: <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>359k</strong></span> (hộp 10 vỉ x 6 viên)
+                  <span>Mua 1 hộp: <span
+                      class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>359k</strong></span>
+                    (hộp 10 vỉ x 6 viên)
                   </span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="combo" value="2" class="accent-[#a0522d]" />
-                  <span>Mua 2 hộp: <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>649k</strong></span> (tiết kiệm 69k)
+                  <span>Mua 2 hộp: <span
+                      class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>649k</strong></span>
+                    (tiết kiệm 69k)
                   </span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="combo" value="3" class="accent-[#a0522d]" />
-                  <span>Mua 3 hộp: <span class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>899k</strong></span> (tiết kiệm 178k)
+                  <span>Mua 3 hộp: <span
+                      class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>899k</strong></span>
+                    (tiết kiệm 178k)
                   </span>
                 </label>
                 <div class="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-gray-800">
@@ -757,7 +751,6 @@
     });
   </script>
 
-  <!-- validate phone number & submit to Google Apps Script -->
   <script>
     const form = document.getElementById("orderForm");
     const submitBtn = document.getElementById("submitBtn");
@@ -767,47 +760,46 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Lấy dữ liệu từ form
       const name = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
       const address = document.getElementById("address").value.trim();
       const combo = document.querySelector('input[name="combo"]:checked');
       const quantity = document.getElementById("quantity").value.trim();
 
-      // Validate Họ và Tên
-      if (!name) {
-        alert("⚠️ Vui lòng nhập Họ và Tên.");
-        return;
-      }
+      if (!name) { alert("⚠️ Vui lòng nhập Họ và Tên."); return; }
+      if (!/^0\d{9}$/.test(phone)) { alert("⚠️ Vui lòng nhập đúng số điện thoại Việt Nam."); return; }
+      if (!address) { alert("⚠️ Vui lòng nhập Địa chỉ nhận hàng."); return; }
+      if (!combo && !quantity) { alert("⚠️ Vui lòng chọn số lượng."); return; }
 
-      // Validate số điện thoại Việt Nam (10 chữ số, bắt đầu bằng 0)
-      if (!/^0\d{9}$/.test(phone)) {
-        alert("⚠️ Vui lòng nhập đúng số điện thoại Việt Nam (10 số, bắt đầu bằng 0).\nVí dụ: 0912345678");
-        return;
-      }
+      // --- LOGIC TÍNH GIÁ ĐƠN HÀNG ---
+      const prices = { "1": 359000, "2": 649000, "3": 899000 };
+      let orderValue = 0;
 
-      // Validate Địa chỉ
-      if (!address) {
-        alert("⚠️ Vui lòng nhập Địa chỉ nhận hàng.");
-        return;
+      if (combo) {
+        orderValue = prices[combo.value];
+      } else if (quantity) {
+        const qty = parseInt(quantity);
+        if (qty > 0) {
+          if (qty === 1) orderValue = prices["1"];
+          else if (qty === 2) orderValue = prices["2"];
+          else {
+            // Nếu >= 3 hộp thì tính theo đơn giá combo 3
+            const unitPrice = 899000 / 3;
+            orderValue = Math.round(qty * unitPrice);
+          }
+        }
       }
+      // -------------------------------
 
-      // Validate số lượng
-      if (!combo && !quantity) {
-        alert("⚠️ Vui lòng chọn số lượng hoặc nhập số hộp muốn mua.");
-        return;
-      }
-
-      // Hiển thị loading spinner
       loadingSpinner.classList.add("active");
       submitBtn.disabled = true;
 
-      // Chuẩn bị dữ liệu gửi
       const data = new URLSearchParams();
       data.append("name", name);
       data.append("phone", phone);
       data.append("address", address);
-      
+      data.append("orderValue", orderValue); // Gửi số tiền sang Sheet luôn cho dễ quản lý
+
       if (combo) {
         data.append("combo", combo.value);
       } else {
@@ -815,33 +807,36 @@
       }
 
       try {
-        // Gửi dữ liệu đến Web App
         const response = await fetch(WEB_APP_URL, {
           method: "POST",
           body: data,
         });
 
-        // Đợi response từ backend
         const result = await response.json();
 
-        // Ẩn loading spinner
         loadingSpinner.classList.remove("active");
         submitBtn.disabled = false;
 
         if (result.status === "success") {
-          alert(`🎉 Đặt hàng thành công!\n\nChúng tôi sẽ liên hệ số ${phone} để xác nhận trong 10 phút.`);
+          // BẮN PIXEL VỚI GIÁ TRỊ ĐÃ TÍNH TOÁN
+          fbq('track', 'Lead', {
+            content_name: 'Biotin Men Bia Khô',
+            content_category: 'Thực phẩm chức năng',
+            value: orderValue,
+            currency: 'VND'
+          });
+
+          alert(`🎉 Đặt hàng thành công!\n\nTổng tiền: ${orderValue.toLocaleString('vi-VN')}đ\nChúng tôi sẽ gọi xác nhận trong 10 phút.`);
           form.reset();
-          // Bỏ chọn radio button combo
           document.querySelectorAll('input[name="combo"]').forEach(r => r.checked = false);
         } else {
           alert(`❌ Lỗi: ${result.message || "Gửi đơn hàng thất bại."}`);
         }
       } catch (error) {
         console.error("Chi tiết lỗi:", error);
-        // Ẩn loading spinner
         loadingSpinner.classList.remove("active");
         submitBtn.disabled = false;
-        alert(`❌ Gửi đơn hàng thất bại!\n\nLỗi: ${error.message}\n\nVui lòng thử lại sau hoặc liên hệ: 0916.166.862`);
+        alert(`❌ Gửi đơn hàng thất bại! Vui lòng thử lại sau.`);
       }
     });
   </script>

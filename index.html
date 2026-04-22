@@ -550,21 +550,21 @@
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="combo" value="1" class="accent-[#a0522d]" />
                   <span>Mua 1 hộp: <span
-                      class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>359k</strong></span>
+                      class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>379k</strong></span>
                     (hộp 10 vỉ x 6 viên)
                   </span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="combo" value="2" class="accent-[#a0522d]" />
                   <span>Mua 2 hộp: <span
-                      class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>649k</strong></span>
+                      class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>699k</strong></span>
                     (tiết kiệm 69k)
                   </span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="combo" value="3" class="accent-[#a0522d]" />
                   <span>Mua 3 hộp: <span
-                      class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>899k</strong></span>
+                      class="text-yellow-400 animate-[textGlow_2s_ease-in-out_infinite]"><strong>999k</strong></span>
                     (tiết kiệm 178k)
                   </span>
                 </label>
@@ -650,6 +650,15 @@
             <img class="w-[20px] mt-[4px]" src="./images/icon/messages.svg" alt="icon mess" />
             <p class="text-white text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
               <strong>Messenger</strong>
+            </p>
+          </div>
+        </a>
+        <a href="https://zalo.me/0916166862" target="_blank"
+          class="flex items-center gap-2 hover:text-accent transition">
+          <div class="flex items-start mb-2 gap-2">
+            <img class="w-[20px] mt-[4px]" src="./images/icon/phone.svg" alt="icon zalo" />
+            <p class="text-white text-lg max-w-prose opacity-0 animate-fade-up [animation-delay:0.2s]">
+              <strong>Zalo</strong>
             </p>
           </div>
         </a>
@@ -772,7 +781,7 @@
       if (!combo && !quantity) { alert("⚠️ Vui lòng chọn số lượng."); return; }
 
       // --- LOGIC TÍNH GIÁ ĐƠN HÀNG ---
-      const prices = { "1": 359000, "2": 649000, "3": 899000 };
+      const prices = { "1": 379000, "2": 699000, "3": 999000 };
       let orderValue = 0;
 
       if (combo) {
@@ -784,7 +793,7 @@
           else if (qty === 2) orderValue = prices["2"];
           else {
             // Nếu >= 3 hộp thì tính theo đơn giá combo 3
-            const unitPrice = 899000 / 3;
+            const unitPrice = 999000 / 3;
             orderValue = Math.round(qty * unitPrice);
           }
         }
